@@ -1,0 +1,6 @@
+#LOGIN    = "damcfarl"
+#PASSWORD = "cisco!123"
+#URL      = "https://10.122.143.36"
+LOGIN    = "admin"
+PASSWORD = "!v3G@!4@Y"
+URL      = "https://sandboxapicdc.cisco.com"

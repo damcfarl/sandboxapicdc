@@ -1,0 +1,15 @@
+---
+#action: post
+protocol: https
+validate_certs:  no
+host:  sandboxapicdc.cisco.com
+aci_user:  admin
+aci_password: "!v3G@!4@Y"
+#aci_user:  damcfarl
+#aci_password: cisco!123
+#host:  10.88.36.23
+aci_validate_certs: false
+
+
+
+# These are the Variables and values that are used by ansible_loop.yml
