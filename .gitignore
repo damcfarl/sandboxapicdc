@@ -1,7 +1,5 @@
-Ansible_galaxy
-Python_ACI
 ndo
 Postman_ACI
 **/.terraform*
 **/terraform.*
-Terraform_ACI_MSO
+
