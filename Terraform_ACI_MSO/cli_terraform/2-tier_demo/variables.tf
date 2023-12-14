@@ -1,17 +1,17 @@
 variable "aci_username" { 
-# default = "damcfarl" 
-  default = "admin" 
+  default = "damcfarl" 
+# default = "admin" 
 }
 
 variable "aci_password" { 
 #  default = "C1sco12345!" 
-  default = "!v3G@!4@Y" 
-#  default = "cisco!123" 
+#  default = "!v3G@!4@Y" 
+   default = "cisco!123" 
 }
 
 variable "aci_url" { 
-#  default = "https://10.88.36.23"
-  default = "https://sandboxapicdc.cisco.com"
+   default = "https://10.88.36.23"
+#  default = "https://sandboxapicdc.cisco.com"
 }
 
 variable "demo_tenant_tf" {

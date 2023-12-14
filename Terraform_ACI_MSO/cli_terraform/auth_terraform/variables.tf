@@ -4,10 +4,12 @@ variable "aci_password" {
   default = "cisco!123" 
 }
 
-variable "aci_url" { default = "https://10.122.143.36" }
+variable "aci_url" { 
+  default = "https://10.88.36.23" 
+}
 
 variable "demo_tenant_tf" {
-  default = "dm_terraform_cli_T01"
+  default = "dm_terraform_auth_key"
 # default = "dm_terraform_appcentric_T01"
 }
 

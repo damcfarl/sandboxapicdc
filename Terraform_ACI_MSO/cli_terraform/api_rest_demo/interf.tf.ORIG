@@ -24,17 +24,17 @@ resource "aci_rest" "add_interf_des" {
 {
     "infraHPathS": {
         "attributes": {
-            "rn": "hpaths-2202_eth1_11",
-            "dn": "uni/infra/hpaths-2202_eth1_11",
+            "rn": "hpaths-602_eth1_60",
+            "dn": "uni/infra/hpaths-602_eth1_60",
             "descr": "Interface is not in use",
-            "name": "2202_eth1_11"
+            "name": "602_eth1_60"
         },
         "children": [
             {
                 "infraRsHPathAtt": {
                     "attributes": {
-                        "dn": "uni/infra/hpaths-2202_eth1_11/rsHPathAtt-[topology/pod-1/paths-2202/pathep-[eth1/11]]",
-                        "tDn": "topology/pod-1/paths-2202/pathep-[eth1/11]"
+                        "dn": "uni/infra/hpaths-602_eth1_60/rsHPathAtt-[topology/pod-1/paths-602/pathep-[eth1/60]]",
+                        "tDn": "topology/pod-1/paths-602/pathep-[eth1/60]"
                     }
                 }
             }
