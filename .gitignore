@@ -2,4 +2,4 @@ ndo
 Postman_ACI
 **/.terraform*
 **/terraform.*
-
+**/*.swp
