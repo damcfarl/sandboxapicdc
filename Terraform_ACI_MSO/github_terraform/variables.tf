@@ -1,12 +1,12 @@
 #
-variable "aci_username" { default = "aciadmin" }
+variable "aci_username" { default = "damcfarl" }
 
-variable "aci_password" { default = "C1sco12345!" }
+variable "aci_password" { default = "cisco!123" }
 
-variable "aci_url" { default = "https://198.19.202.67" }
+variable "aci_url" { default = "https://10.88.36.23" }
 
 variable "demo_tenant_tf" {
-  default = "dm_terraform_gitlab_T01"
+  default = "dm_terraform_github_actions"
 }
 
 variable "anp_tf" {
