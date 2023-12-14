@@ -2,16 +2,16 @@ import requests
 import json
  
 def get_token():  
-#  url = "https://10.88.36.23/api/aaaLogin.json"
-   url = "https://sandboxapicdc.cisco.com/api/aaaLogin.json"
+   url = "https://10.88.36.23/api/aaaLogin.json"
+#  url = "https://sandboxapicdc.cisco.com/api/aaaLogin.json"
  
    payload = {
       "aaaUser": {
          "attributes": {
-#           "name":"damcfarl",
-#           "pwd":"cisco!123"
-            "name":"admin",
-            "pwd":"!v3G@!4@Y"
+            "name":"damcfarl",
+            "pwd":"cisco!123"
+#           "name":"admin",
+#           "pwd":"!v3G@!4@Y"
          }
       }
    }

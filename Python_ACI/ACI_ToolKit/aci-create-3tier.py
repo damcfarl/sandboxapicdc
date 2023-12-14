@@ -27,53 +27,58 @@
 #    under the License.                                                        #
 #                                                                              #
 ################################################################################
+from acitoolkit.acitoolkit import *
 """
-delete a tag from a tenant or all tenants
+Create a tenant with a 3 EPGs, 3 BDs and 1 vrf 
+
 """
+# Create the Tenant
+tenant = Tenant('dm-csv-Tenant')
+
+# Create the Application Profile
+app = AppProfile('myapp', tenant)
+
+# Create the EPG
+epg1 = EPG('WEB', app)
+epg2 = EPG('DB', app)
+epg3 = EPG('APP', app)
+
+# Create a Context and BridgeDomain
+context = Context('vrf', tenant)
+bd1 = BridgeDomain('WEB', tenant)
+bd2 = BridgeDomain('DB', tenant)
+bd3 = BridgeDomain('APP', tenant)
+
+bd1.add_context(context)
+bd2.add_context(context)
+bd3.add_context(context)
+
+# Place the EPG in the BD
+epg1.add_bd(bd1)
+epg2.add_bd(bd2)
+epg3.add_bd(bd3)
 
 
-import acitoolkit.acitoolkit as aci
 
+# Get the APIC login credentials
+description = 'acitoolkit tutorial application'
+creds = Credentials('apic', description)
+creds.add_argument('--delete', action='store_true',
+                   help='Delete the configuration from the APIC')
+args = creds.get()
 
-def main():
+# Delete the configuration if desired
+if args.delete:
+    tenant.mark_as_deleted()
 
-    # Get the APIC login credentials
-    description = 'testing tags'
-    creds = aci.Credentials('apic', description)
-    creds.add_argument('--tenant', help='delete this tag from the given tenant')
-    creds.add_argument('--tag', help='the tag to be deleted')
-    args = creds.get()
+# Login to APIC and push the config
+session = Session(args.url, args.login, args.password)
+session.login()
+resp = tenant.push_to_apic(session)
+if resp.ok:
+    print ('Success')
 
-    if not args.tag:
-        print("please pass tag argument")
-        return
-    # Login to APIC and push the config
-    session = aci.Session(args.url, args.login, args.password)
-    resp = session.login()
-    if not resp.ok:
-        print('%% Could not login to APIC')
-        return
-    # Get tenants from the APIC
-    if args.tenant:
-        tenants = aci.Tenant.get_deep(session, limit_to=['tagInst'], names=[args.tenant])
-    else:
-        # Get all Tenants within APIC
-        tenants = aci.Tenant.get(session)
-        names_tenants = [tenant.name for tenant in tenants]
-        tenants = aci.Tenant.get_deep(session, limit_to=['tagInst'], names=names_tenants)
-    # get all EPGs with their tag
-    for tenant in tenants:
-        tenant.delete_tag(args.tag)
-        resp = tenant.push_to_apic(session)
-        if resp.ok:
-            print ('Success')
-
-        # Print what was sent
-        print ('Pushed the following JSON to the APIC')
-        print ('URL:', tenant.get_url())
-        print ('JSON:', tenant.get_json())
-
-if __name__ == '__main__':
-    main()
-
-
+# Print what was sent
+print ('Pushed the following JSON to the APIC')
+print ('URL:', tenant.get_url())
+print ('JSON:', tenant.get_json())

@@ -8,7 +8,8 @@ tenant_descr = "Created_by_python_and_REST_API"
 def create_tenant():
    
    token = get_token()
-   url = "https://sandboxapicdc.cisco.com/api/mo/uni.json"
+   url = "https://10.88.36.23/api/mo/uni.json"
+#  url = "https://sandboxapicdc.cisco.com/api/mo/uni.json"
    payload = {
       "fvTenant": {
          "attributes": {
