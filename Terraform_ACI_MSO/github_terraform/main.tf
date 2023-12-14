@@ -21,7 +21,7 @@ provider "aci" {
 terraform {
   backend "local" {
 #   path="/home/cisco/projects/aci/tf_state/terraform.tfstate"
-    path="/home/cisco/Documents/GS_ACI_Automation_with_Terraform_dcloud/tf_state/terraform_tfstate"
+    path="/home/damcfarl/Documents/terraform_statefiles/terraform_tfstate"
   }
 }
 
