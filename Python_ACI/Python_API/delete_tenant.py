@@ -7,8 +7,8 @@ tenant_name = "dm_tenant_python_REST_API"
 def delete_tenant():
    
    token = get_token()
-   url = "https://10.88.36.23/api/mo/uni.json"
-#  url = "https://sandboxapicdc.cisco.com/api/mo/uni.json"
+#   url = "https://10.88.36.23/api/mo/uni.json"
+  url = "https://sandboxapicdc.cisco.com/api/mo/uni.json"
    payload = {
       "fvTenant": {
          "attributes": {
